@@ -1,16 +1,17 @@
 package br.com.xbrain.service;
 
-import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
+import br.com.xbrain.dto.VendedorResponse;
 import br.com.xbrain.exceptions.DuplicateException;
 import br.com.xbrain.exceptions.NotFoundException;
 import br.com.xbrain.model.Vendedor;
 import br.com.xbrain.repository.VendedorRepository;
+import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -29,8 +30,8 @@ public class VendedorService {
         );
     }
 
-    public List<Vendedor>  buscarTodos(){
-        return vendedorRepository.findAll();
+    public List<VendedorResponse> buscarVendedor(LocalDate dataInicio, LocalDate dataFim){
+        return vendedorRepository.buscarVendedor(dataInicio, dataFim);
     }
 
     private boolean existe(Vendedor vendedor) {
