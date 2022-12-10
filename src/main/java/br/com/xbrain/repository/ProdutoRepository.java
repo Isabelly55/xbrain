@@ -8,7 +8,7 @@ import br.com.xbrain.model.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
-    boolean existsByDescricaoAndIdNot(String descricao, Long id);
+    boolean existsByDescricao(String descricao);
 
     List<Produto> findAllByIdIn(List<Long> produtosIds);
     

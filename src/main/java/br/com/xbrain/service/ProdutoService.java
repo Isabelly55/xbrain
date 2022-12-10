@@ -34,7 +34,7 @@ public class ProdutoService {
     }
 
     private boolean existe(Produto produto) {
-        return produtoRepository.existsByDescricaoAndIdNot(produto.getDescricao(), produto.getId());
+        return produtoRepository.existsByDescricao(produto.getDescricao());
     }
 
 }
